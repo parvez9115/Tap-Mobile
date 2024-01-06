@@ -1,0 +1,129 @@
+.searchInput{
+    padding: 0px;
+    margin: 0px;
+    width: 50%;
+  }
+  .rowSpacing{
+    padding: 10px;
+    justify-content: center; 
+  }
+  .user-card {
+    padding: 0px;
+    background-color: #f3f2f8;
+    border-radius: 8px;
+    border-left: 3px solid #cc2930;
+  }
+  .user-content {
+    background-color: #f3f2f8;
+    color: #2e2c2c;
+    font-weight: 600;
+    font-size: 13px;
+    margin: 0;
+    padding: 0 0 0 4px;
+    line-height: 12px;
+  }
+
+  .plateNo {
+    padding: 5px 0px 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(46, 44, 44);
+    text-align: end;
+  }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    margin-top: -10px;
+    margin-left: -40px;
+    position: absolute;
+    z-index: 1;
+    font-size: 10px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .user-detail {
+    background-color: white;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 7px;
+  }
+  .detailcol {
+    font-family: sans-serif;
+    padding: 2px;
+  }
+  .data {
+    color: #837373;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    font-size: 12px;
+    margin: 0px 0px 0px 15px;
+  }
+  #add_data{
+    color: #837373;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    padding-left: 5px;
+    font-size: 12px;
+  }
+  #cop-col {
+    border-top: 1px dotted #b3a6a6;;
+    text-align: center;
+    margin-top: 5px;
+    padding-top: 4px;
+  }
+  #edit-icon {
+    color:green;
+    font-size: 15px;
+  }
+  .fab-btn {
+    --background: lavender;
+    --box-shadow: none;
+    position: absolute;
+    top: -11px;
+    right: -3px;
+    height: 22px;
+    width: 22px;
+  }
+  .fab-btn:hover {
+    --background-hover: #b6b6b6;
+  }
+  
+  
+
+  .activate_button{
+    background: green;
+    width: 60px;
+    height: 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    }
+
+    .deactivate_button{
+      background: red;
+      width: 75px;
+      height: 20px;
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    }
+
+  .add-icon {
+        font-size: 32px;
+        color: white;
+      }
+ 
+  

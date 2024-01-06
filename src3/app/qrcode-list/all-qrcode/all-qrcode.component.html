@@ -1,0 +1,25 @@
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-title>Qrcode List</ion-title>
+  </ion-toolbar> -->
+  <ion-row><ion-col size="10"><h3>Qrcode List</h3></ion-col>
+  
+    <ion-col size="2" style="text-align: right;"><ion-icon name="close-circle" (click)="closeModal()"></ion-icon></ion-col>
+  </ion-row>
+</ion-header>
+
+<ion-content>
+  <ion-row class="rowSpacing">
+    <ion-item class="searchInput">
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+      <ion-input (keyup)="updateFilter($event)" [(ngModel)]="userName" placeholder="Search">
+      </ion-input>
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <ion-col size=12>
+      <app-ngx-table #myTable [datalist]="member"  (reset)='reset($event)'   (selectedRowData)="selectedRowRecived($event)"></app-ngx-table>
+    <!-- <app-ngx-table-rto #myTable  [datalist]="member" [valid]="valid" (selectedRowData)="selectedRowRecived($event)"></app-ngx-table-rto> -->
+    </ion-col>
+  </ion-row>
+</ion-content>

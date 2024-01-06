@@ -1,0 +1,159 @@
+ion-input {
+  .native-input {
+      border-radius: 25px
+  }
+}
+#num{
+  background-color: white;
+  color: black;
+}
+.labelSpacing{
+  margin-bottom: 3%;
+  margin-left: 6%;
+  width: 85%;
+}
+
+input{
+  width: 100%;
+  height: 47px;
+  border: 0px;
+  outline-color: white;
+}
+
+.imagedata{
+  background-size: 100% 100%;
+
+}
+
+.moveAndTrackSpacing{
+  opacity: 0.9;
+  width: 300px;
+  margin: auto;
+  position: relative;
+  top: 50px;
+  border-radius: 5px;
+  
+}
+
+@media only screen and (min-width: 1024px) {
+  .moveAndTrackSpacing {
+      margin:auto;
+      position: relative;
+      top:17vh;
+  }
+  .moveAndTrackSpacingNew {
+      position: absolute;
+      right: 8px;
+      top: 27vh;
+      background: #f1f1f170;
+  }
+  
+}
+@media only screen and (max-width: 550px)  {
+  .moveAndTrackSpacing {
+      position: relative;
+      top: 50px;
+  }
+  
+}
+@media only screen and (min-width:551px){
+  .moveAndTrackSpacing {
+       width: 360px;
+  } 
+  .moveAndTrackSpacingNew {
+      width: 360px;
+ } 
+}
+
+
+.container{
+  margin: 0px;
+  height: 100vh;
+  display: block;
+  background-size: 100% 100% !important
+}
+
+.text-box-spacing{
+height: 60px;
+}
+
+.labelSpacing-web {
+  margin-bottom: 3%;
+}
+
+.left-side-form-grp{
+  width: 20%;
+  position: fixed;
+  top: 10vh;
+  right: 2vh;
+}
+.container-wrapper{
+  margin: 0px;
+  height: 100vh;
+  display: block;
+  background: url("https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/loginimages/track_apmkingstrack_com_background.jpg") center center / cover no-repeat fixed;  
+}
+.labelSpacing{
+  margin-bottom: 3%;
+  margin-left: 6%;
+  width: 85%;
+}
+
+#partitioned {
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(to left, rgb(233, 0, 0) 70%, rgba(255, 255, 255, 0) 0%);
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+  min-width: 220px;
+}
+
+.background-gradient {
+  background-image: linear-gradient(to top right, #f51e2e, #fd6035);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+
+#divInner {
+  left: 0;
+  position: sticky;
+}
+
+#divOuter {
+  width: 190px;
+  overflow: hidden;
+}
+
+.item-interactive.ion-valid {
+  --highlight-background: none;
+}
+
+.placeholder-label {
+  font-size: 25px;
+  align-self: center;
+}
+
+
+.resend-otp{
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0px 11px 7px 3px;
+  justify-content: flex-end;
+}
+.parentAppLogo
+{
+  width:90%;
+  margin-top: 25%;
+}
+.form{
+  margin-bottom: 0px;
+  margin-top: 209px;
+}
+ion-content{
+  --background: #86d3f0 !important;
+}

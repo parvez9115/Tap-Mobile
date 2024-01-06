@@ -1,0 +1,175 @@
+<ion-header  *ngIf="myPlatform == 'desktop'">
+  <ion-toolbar>
+    <ion-row >
+      <ion-col size = 11>
+        <ion-title>Certification List</ion-title>
+      </ion-col>
+    </ion-row>  
+  </ion-toolbar>
+</ion-header>
+<ion-header *ngIf="myPlatform != 'desktop'">
+  <ion-toolbar>
+    <ion-row> 
+      <ion-col size="2">
+        <ion-menu-button></ion-menu-button> 
+      </ion-col>
+      <ion-col size="5" style="margin: 15px 0px 0px 0px;font-size: 13px;font-weight: bold;" style="align-self: center;">Certification List</ion-col>
+      <ion-col size="5">
+        <ion-item class="searchboxmobile">
+          <ion-icon name="search-outline" slot="start" style="margin: -10px 10px 0px 0px;"></ion-icon>
+          <ion-input style="margin: -10px 0px 0px 0px;font-size: 13px;" (keyup)="updateFilter($event)"  placeholder="Search">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col size=6>
+        <ion-datetime [(ngModel)]="formDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+        pickerFormat="MMM DD, YYYY" placeholder="Select Form Date" [max]="maxDate">
+      </ion-datetime>
+      </ion-col>
+      <ion-col size=6>
+        <ion-datetime [(ngModel)]="toDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+        pickerFormat="MMM DD, YYYY" placeholder="Select To Date" [max]="maxDate">
+      </ion-datetime>
+      </ion-col>
+      <ion-col size=6>
+       <ion-button (click)='submit(0)'  expand="full" shape="round">Submit</ion-button>
+      </ion-col>
+      <ion-col size=6>
+        <ion-button (click)='getLoginUserList(0)' shape="round" expand="full">Refresh</ion-button>
+       </ion-col>
+      </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col size="12" *ngIf="myPlatform == 'desktop'">
+      <ion-row class="rowSpacing">
+        <ion-item class="searchInput">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-input (keyup)="updateFilter($event)"  placeholder="Search">
+          </ion-input>
+        </ion-item>
+      </ion-row>
+      
+      <ion-row class="ion-text-center">
+      <ion-col size=3 >
+        <ion-datetime [(ngModel)]="formDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+        pickerFormat="MMM DD, YYYY" placeholder="Select Form Date" [max]="maxDate">
+      </ion-datetime>
+      </ion-col>
+      <ion-col size=3 >
+        <ion-datetime [(ngModel)]="toDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+        pickerFormat="MMM DD, YYYY" placeholder="Select To Date" [max]="maxDate">
+      </ion-datetime>
+      </ion-col>
+      <ion-col size=3>
+       <ion-button (click)='submit()'  expand="full">Submit</ion-button>
+      </ion-col>
+      <ion-col size=3 >
+        <ion-button (click)='getLoginUserList()'  expand="full">Refresh</ion-button>
+       </ion-col>
+      </ion-row> 
+      <!-- <ion-row class="ion-text-center">
+        <ion-col size=2.5>
+          <input  list="search" style="padding: 15px;" class="Searchbox" placeholder='Search By' />
+      <datalist id="search">
+                    <option *ngFor="let search of searchCode">{{search}}</option>
+                  </datalist>
+        </ion-col>
+        <ion-col size=2.5>
+          <input type="text" class="Searchbox" placeholder="Eg:MH13RE3939">
+        </ion-col>
+        <ion-col size=2.5>
+          <ion-datetime [(ngModel)]="formDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+          pickerFormat="MMM DD, YYYY" placeholder="Select Form Date" [max]="maxDate">
+        </ion-datetime>
+        </ion-col>
+        <ion-col size=2.5>
+          <ion-datetime [(ngModel)]="toDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+          pickerFormat="MMM DD, YYYY" placeholder="Select To Date" [max]="maxDate">
+        </ion-datetime>
+        </ion-col>
+         <ion-col size=1>
+          <ion-button (click)='submit()' style="margin: 0px;" expand="full">Submit</ion-button>
+         </ion-col>
+         <ion-col size=1>
+          <ion-button (click)='getLoginUserList()' style="margin: 0px;" expand="full">Refresh</ion-button>
+         </ion-col>
+      </ion-row> -->
+      
+      <ion-row>
+        <ion-col size=12>
+        <app-ngx-table-rto #myTable  [datalist]="member"  (selectedRowData)="selectedRowRecived($event)"></app-ngx-table-rto>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="12" *ngIf="myPlatform != 'desktop'">
+      <!-- <ion-row style="justify-content: center;margin: -5px 0px 10px 0px;">
+        <ion-item class="searchboxmobile">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-input (keyup)="updateFilter($event)"  placeholder="Search">
+          </ion-input>
+        </ion-item>
+</ion-row> -->
+
+
+
+  <ion-row>
+    <ion-col size=12 style="padding: 0px;">
+      <ion-card id="card_style" *ngFor="let items of member">
+        <ion-row>
+          <ion-col size="12">
+             <ion-row>
+               <ion-col size="6">
+                 <ion-label class="certificate_label">Certificate Id</ion-label>
+               </ion-col>
+               <ion-col size="6">
+                <ion-label class="certificate_data">{{items.certificateId}}</ion-label>
+              </ion-col>
+             </ion-row>
+             <ion-row>
+              <ion-col size="6">
+                <ion-label class="certificate_label">Certificate Number</ion-label>
+              </ion-col>
+              <ion-col size="6">
+               <ion-label class="certificate_data">{{items.certificateId}}</ion-label>
+             </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="certificate_label">Creation Date</ion-label>
+              </ion-col>
+              <ion-col size="6">
+               <ion-label class="certificate_data">{{items.createdDate.substring(0, 10)}}</ion-label>
+             </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="certificate_label">Registration Number</ion-label>
+              </ion-col>
+              <ion-col size="6">
+               <ion-label class="certificate_data">{{items.registrationNumber}}</ion-label>
+             </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="6">
+                <ion-label class="certificate_label">Chassis No</ion-label>
+              </ion-col>
+              <ion-col size="6">
+               <ion-label class="certificate_data">{{items.engineNumber}}</ion-label>
+             </ion-col>
+            </ion-row>
+            <ion-row style="justify-content: center;">
+              <ion-button (click)='clickToDownload(items)' style="height: 30px;">Download</ion-button>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+       </ion-card>
+    </ion-col>
+  </ion-row>
+    </ion-col>
+  </ion-row>
+</ion-content>
+

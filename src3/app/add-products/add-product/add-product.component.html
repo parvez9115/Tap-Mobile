@@ -1,0 +1,48 @@
+<ion-header  *ngIf="myPlatform == 'desktop'">
+  <ion-toolbar >
+    <ion-row >
+      <ion-col size = 12 style="font-size: 20px;margin: 0px 0px 0px 20px;">
+        <ion-title>Add-Products</ion-title>
+      </ion-col>
+    </ion-row>  
+  </ion-toolbar>
+</ion-header>
+<ion-header *ngIf="myPlatform != 'desktop'">
+  <ion-toolbar >
+    <ion-row> 
+    <ion-col size=8 id='title' style="align-self: center;font-size: 20px;margin: 0px 0px 0px 20px;">Add-Products</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <form [formGroup]="products">
+    <ion-row>
+      <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+        <ion-label class="label_style">Brand Name:</ion-label>
+        <input  placeholder='Brand Name' formControlName="brandName" class="modal_wrapper" />
+    </ion-col>
+    <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+      <ion-label class="label_style">Product Name:</ion-label>
+      <input  placeholder='Product Name' formControlName="productName" class="modal_wrapper" />
+  </ion-col>
+  <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+    <ion-label class="label_style">COP Number:</ion-label>
+    <input  placeholder='COP Number' formControlName="copNumber" class="modal_wrapper" />
+</ion-col>
+<ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+  <ion-label class="label_style">COP Valid Till Date:</ion-label>
+  <ion-datetime class="datetime" max="2040-12-09" formControlName='copValidtill' displayFormat="YYYY-MM-DD"
+  placeholder="Select COP Valid Till Date"></ion-datetime>
+</ion-col>
+<ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+  <input  type="file" class="documents"   ng2FileSelect [uploader]="productImg" style="margin: 10px 0px 0px 7px;" class="modal_wrapper" />
+</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" style="text-align: center !important;">
+        <ion-button color="danger" [disabled]="!products.valid" (click)="submit()" >submit</ion-button>
+        <ion-button color="danger" (click)="closeModel()" >Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+  </form> 
+  </ion-content>

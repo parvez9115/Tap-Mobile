@@ -1,0 +1,72 @@
+
+ <ion-row class="ion-text-left">
+<ion-col class='header'>Certificate Statistics</ion-col>
+ </ion-row>
+  <ion-row class="ion-text-center" style="
+  margin-top: 0.5rem;
+">
+    <ion-col size=2.5>
+      <!-- <ion-input type="text" placeholder="State" formControlName="state"></ion-input> -->
+      <input style="
+    height: 3rem;
+      border: 0px;" list="state"placeholder='Select RTO Department'
+        style="padding: 0px; " [(ngModel)]='selectedRto' />
+    
+      <datalist id="state">
+        <option *ngFor="let rto of rtoAreaCode">{{rto}}</option>
+      </datalist>
+  </ion-col>
+  <ion-col size=2.5>
+    <!-- <ion-input type="text" placeholder="State" formControlName="state"></ion-input> -->
+    <input style="
+  height: 3rem;
+    border: 0px;" list="dealer"placeholder='Select Dealer'
+      style="padding: 0px; " [(ngModel)]='selectedDealer' />
+  
+    <datalist id="dealer">
+      <option *ngFor="let rto of dealerList">{{rto.name+'('+rto.mobileno+')'}}</option>
+    </datalist>
+</ion-col>
+    <ion-col size=2.5>
+      <ion-datetime [(ngModel)]="formDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+      pickerFormat="MMM DD, YYYY" placeholder="Select Form Date" [max]="maxDate">
+    </ion-datetime>
+    </ion-col>
+    <ion-col size=2.5>
+      <ion-datetime [(ngModel)]="toDate" class="dateFormat" displayFormat="MMM DD, YYYY"
+      pickerFormat="MMM DD, YYYY" placeholder="Select To Date" [max]="maxDate">
+    </ion-datetime>
+    </ion-col>  
+    <ion-col size=1 >
+     <ion-button (click)='submit("new")'  expand="full">Search</ion-button>
+  
+    </ion-col>
+    <ion-col size=1 >
+      <ion-button (click)='submit("reset")'  expand="full">Reset</ion-button>
+     </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: 2rem;margin-left: 10px;" *ngIf='memberList !=0' >
+      <ion-col size=8 offset-md=3 offset-xl=3 offset-lg=3>
+
+
+        <table>
+          <th *ngFor = "let column of headers" style="padding: 14px;
+          font-size: 18px;
+          border: 1px solid;">
+            {{column}}
+          </th>
+          <tr *ngFor = "let row of memberList">
+            <td *ngFor = "let column of headers2"  style="padding: 14px;
+            font-size: 18px;
+            border: 1px solid;">
+              {{row[column]}}
+            </td>
+          </tr>
+     </table>
+
+
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row></ion-row> -->
+  
+     

@@ -1,0 +1,436 @@
+<ion-header *ngIf="myPlatform != 'desktop'">
+  <ion-toolbar>
+    <ion-row> 
+      <ion-menu-button></ion-menu-button> <ion-col size=8 id='title' style="align-self: center;">Dashboard Count</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="background-Style">
+<ion-row>
+  <ion-col size="12" *ngIf="myPlatform == 'desktop'">
+    <ion-row>
+      <ion-col size="6">
+        <ion-row class="day-style">
+          Statistics
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <ion-row class="time_style">
+          {{todayDate}}
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="3">
+            <ion-card class="certificate-card">
+               <ion-row>
+                 <ion-col size="12">
+         <ion-row>
+    <ion-col size="9" class="certificate-label">
+     Certificates
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="ribbon" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total.certificates}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card class="qrcode-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="qrcode-label">
+ Qrcodes
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="qr-code-outline"class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total['qr-code']}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card class="product-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="product-label">
+ products
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="cart" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total.products}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card class="user-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="user-label">
+ users
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="people" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total.users}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="3">
+        <ion-row class="day-style">
+          Today
+        </ion-row>
+      </ion-col>
+      <ion-col size="3">
+        <ion-row class="time_style">
+       {{todayDate}}
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="3">
+            <ion-card class="certificate-card">
+               <ion-row>
+                 <ion-col size="12">
+         <ion-row>
+    <ion-col size="9" class="certificate-label">
+     Certificates
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="ribbon" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.today.certificates}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card class="qrcode-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="qrcode-label">
+ Qrcodes
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="qr-code-outline"class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.today['qr-code']}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="3">
+        <ion-row class="day-style">
+          Yesterday
+        </ion-row>
+      </ion-col>
+      <ion-col size="3">
+        <ion-row class="time_style">
+          {{yesDate}}
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="3">
+            <ion-card class="certificate-card">
+               <ion-row>
+                 <ion-col size="12">
+         <ion-row>
+    <ion-col size="9" class="certificate-label">
+     Certificates
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="ribbon" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.yesterday.certificates}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="3">
+            <ion-card class="qrcode-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="qrcode-label">
+ Qrcodes
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="qr-code-outline"class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.yesterday['qr-code']}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+
+  <ion-col size="12" *ngIf="myPlatform != 'desktop'">
+ 
+    <ion-row>
+      <ion-col size="6">
+        <ion-row class="day-style">
+          Statistics
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <ion-row class="mob_time_style">
+          {{todayDate}}
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="certificate-card">
+               <ion-row>
+                 <ion-col size="12">
+         <ion-row>
+    <ion-col size="9" class="certificate-label">
+     Certificates
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="ribbon" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total.certificates}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card class="qrcode-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="qrcode-label">
+ Qrcodes
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="qr-code-outline"class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total['qr-code']}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card class="product-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="product-label">
+ products
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="cart" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total.products}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card class="user-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="user-label">
+ users
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="people" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.total.users}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-row class="day-style">
+          Today
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <ion-row class="mob_time_style">
+       {{todayDate}}
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="certificate-card">
+               <ion-row>
+                 <ion-col size="12">
+         <ion-row>
+    <ion-col size="9" class="certificate-label">
+     Certificates
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="ribbon" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.today.certificates}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card class="qrcode-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="qrcode-label">
+ Qrcodes
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="qr-code-outline"class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.today['qr-code']}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-row class="day-style">
+          Yesterday
+        </ion-row>
+      </ion-col>
+      <ion-col size="6">
+        <ion-row class="mob_time_style">
+          {{yesDate}}
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card class="certificate-card">
+               <ion-row>
+                 <ion-col size="12">
+         <ion-row>
+    <ion-col size="9" class="certificate-label">
+     Certificates
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="ribbon" class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.yesterday.certificates}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12">
+            <ion-card class="qrcode-card">
+               <ion-row>
+                 <ion-col size="12">
+<ion-row>
+  <ion-col size="9" class="qrcode-label">
+ Qrcodes
+  </ion-col>
+  <ion-col size="3">
+    <ion-icon name="qr-code-outline"class="icon-style"></ion-icon>
+  </ion-col>
+</ion-row>
+<ion-row class="count-style">
+  {{dashboarddata.yesterday['qr-code']}}
+</ion-row>
+                 </ion-col>
+              </ion-row>
+            </ion-card>
+          </ion-col>
+         </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-col>
+</ion-row>
+</ion-content>

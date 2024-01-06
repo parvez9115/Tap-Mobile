@@ -1,0 +1,7 @@
+{
+  "name": "Vagan Safty",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

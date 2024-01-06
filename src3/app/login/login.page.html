@@ -1,0 +1,101 @@
+<ion-content>
+  <ion-row>
+    <ion-col size="12" [style.background-image]="'url('+ background +')'" [style.background-size]= "'cover'"  class='container' *ngIf="myPlatform == 'desktop'">
+      <div class="moveAndTrackSpacingNew ion-align-items-center ion-justify-content-center" size-md ="6 " size-lg ="6" size-xs ="12" >
+        <div style="width: 100%;text-align: center; padding: 8px; height: 105px;">
+          <img src="https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/Company/Techno_Jacks.png" width="200px" height="88px">
+          </div>
+        <form   style="padding-top: 2%;" [formGroup]="login" >
+            <ion-item *ngIf="pageSelection == 'userLogin'" class=" labelSpacing">
+                <ion-icon slot="start" name="person"></ion-icon>
+                <ion-input formControlName="compName" placeholder="Username" autocomplete="off"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="pageSelection == 'rtoLogin'" class="labelSpacing">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <!-- <ion-select interface="popover" style="width: 100%;" placeholder="Select rto area" formControlName="rtoArea">
+                <ion-select-option  *ngFor="let rto of rtos" >{{rto}}</ion-select-option>
+                </ion-select> -->
+                <input style= "width: 100%; 
+                height: 47px;
+                border: 0px;"  autocomplete="off" list="num"  formControlName="rtoArea"  placeholder = 'Select rto area' style="padding: 0px;background-color: white; " />
+             
+                <datalist id="num">
+                <option *ngFor="let rto of rtos" >{{rto}}</option>
+                </datalist>
+                <!-- <ionic-selectable class="maxWidth" formControlName="rtoArea" [items]="rtos"
+                itemTextField="rtos" [canSearch]="true" (onChange)="portChange($event)" [hasVirtualScroll]="true"
+                placeholder="Select rto area">
+              </ionic-selectable> -->
+              </ion-item>
+            <ion-item  class=" labelSpacing">
+                <ion-icon slot="start" name="key"></ion-icon>
+                <ion-input formControlName="password" placeholder="Password" (keyup.enter)="submitLogin()" [type]="password_type">
+                </ion-input>
+                <ion-icon slot="end" [name]="eye_icon" (click)="showHidePass()"></ion-icon>
+            </ion-item>
+        </form>
+        <ion-row>
+            <ion-col size="6" offset="3">
+                <ion-button [class]="appName" (click)="submitLogin()" 
+                shape="round" expand="block"
+                [disabled]="!login.valid">
+                <ion-icon name="log-in" class="iconSize"></ion-icon> Login
+            </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row  style="justify-content: center;    color: red;">
+        <ion-col class='ion-text-right' (click)='forgot()'>Forgot Password?</ion-col>
+       </ion-row>
+      <!-- <ion-row>
+        <ion-col size="6" offset="3">
+            <ion-button  (click)="changeMode()"   shape="round" expand="block">{{buttonName}}</ion-button>
+    </ion-col>
+  </ion-row> -->
+      </div>
+    </ion-col>
+  
+    <!-- <ion-col size="12" *ngIf="myPlatform != 'desktop'" style="height: 532px; background-color: #86D3EF; background-image: url('https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/TapeManagement/Admin/Tape_background_Mobile.jpg');background-repeat: no-repeat; background-size: 100% 100%;"> -->
+      <ion-col size="12" *ngIf="myPlatform != 'desktop'" style="background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: absolute;
+      height: 39.5rem; background-image: url('https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/TapeManagement/Admin/Tape_background_Mobile.jpg');background-repeat: no-repeat;"> 
+      
+      <ion-grid>
+        <ion-row>
+            <ion-col size="8" offset="2" class="ion-align-items-center ion-justify-content-center">
+                <ion-row class="ion-align-items-center ion-justify-content-center">
+                <!-- <ion-img class="parentAppLogo" src=ServerUrl.s3ServerName+"/Company/smart-vaahan.png"></ion-img> -->
+                </ion-row>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+      
+      
+      <form [formGroup]="login" class="form">
+        <ion-card>
+          <ion-item>
+            <ion-icon class="placeholder-label parentAppBackcolor" slot="start" name="person"></ion-icon>
+            <ion-label style="color: #b1b1b1;font-size: 14px;" position="stacked">UserName</ion-label>
+            <ion-input type="text" formControlName='compName' ></ion-input>
+          </ion-item>
+        </ion-card>
+        <ion-card>
+          <ion-item>
+            <ion-icon class="placeholder-label parentAppBackcolor" slot="start" name="key"></ion-icon>
+            <ion-label style="color: #b1b1b1;font-size: 14px;" position="stacked">Password</ion-label>
+            <ion-input type="text" formControlName='password' (keyup.enter)="submitLogin()" [type]="password_type"></ion-input>
+            <ion-icon slot="end" [name]="eye_icon" (click)="showHidePass()" style="margin: 16px 0px 0px 0px;"></ion-icon>
+          </ion-item>
+        </ion-card>
+        <ion-row style="justify-content: center;">
+          <ion-button (click)="submitLogin()" 
+          shape="round" expand="block"
+          [disabled]="!login.valid" color="danger">Submit</ion-button>
+        </ion-row>
+        <ion-row  style="justify-content: center;    color: red;">
+         <ion-col class='ion-text-right' (click)='forgot()'>Forgot Password?</ion-col>
+        </ion-row>
+      </form>
+     </ion-col>
+  </ion-row>
+  </ion-content>  

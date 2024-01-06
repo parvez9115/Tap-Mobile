@@ -1,0 +1,103 @@
+#background-Style
+{
+    --background:#f8f9fc
+}
+.day-style
+{
+    margin: 20px 0px 0px 30px;
+    font-size: 24px;
+    color: #5c5c6a;
+}
+.time_style
+{
+    font-weight: 500;
+    place-content:end;
+    color: #5778e2;
+    margin: 25px 30px 0px 0px;
+    font-size: 15px;
+}
+.mob_time_style
+{
+    font-weight: 500;
+    place-content:end;
+    color: #5778e2;
+    margin: 25px 15px 0px 0px; 
+    font-size: 13px;
+}
+.certificate-card
+{
+    border-bottom: 3px solid #4e73df;
+    width: 95%;
+    height: 100%;
+    background: white;
+}
+.qrcode-card
+{
+    border-bottom: 3px solid #1cc88a;
+    width: 95%;
+    height: 100%;
+    background: white;
+}
+.product-card
+{
+    border-bottom: 3px solid #36b9cc;
+    width: 95%;
+    height: 100%;
+    background: white;
+}
+.user-card
+{
+    border-bottom: 3px solid #f6c23e;
+    width: 95%;
+    height: 100%;
+    background: white;
+}
+.certificate-label
+{
+    font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #4e73df;
+  padding: 0px 0px 0px 15px;
+  margin: 15px 0px 0px 0px;
+}
+.qrcode-label
+{
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #1cc88a;
+    padding: 0px 0px 0px 15px;
+    margin: 15px 0px 0px 0px;
+}
+.product-label
+{
+    font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #36b9cc;
+  padding: 0px 0px 0px 15px;
+  margin: 15px 0px 0px 0px;
+}
+.user-label
+{
+    font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #f6c23e;
+  padding: 0px 0px 0px 15px;
+  margin: 15px 0px 0px 0px;
+}
+.icon-style
+{
+    font-size: 34px;
+    margin: 15px 0px 0px 0px;
+    color: #dddfed;
+}
+.count-style
+{
+font-size: 20px;
+font-weight: bold;
+margin: -22px 0px 0px 15px;
+color: black;
+}

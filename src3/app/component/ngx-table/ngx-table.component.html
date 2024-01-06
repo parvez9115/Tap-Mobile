@@ -1,0 +1,188 @@
+<div *ngIf='hide && !showProduct && !showRto && !showQrcode'>
+<ngx-datatable #myTable (activate)="onActivate($event)"  class="material bootstrap" [rows]="datalist" [columnMode]="ColumnMode.force" [limit]="10" [headerHeight]="50"
+  [footerHeight]="50" rowHeight="auto"   (page)="onPageChange($event)" [scrollbarV]="false" [sorts]="[{prop: 'createdDate', dir: 'desc'}]">
+  
+  <ngx-datatable-column name="User Id">
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Role">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+        {{row['role']['roleName']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Name">
+  </ngx-datatable-column>
+  <!-- <ngx-datatable-column name="Email">
+  </ngx-datatable-column> -->
+  <ngx-datatable-column name="Department">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+    {{row['rtoZone']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Address">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+        {{row['addressLine']}}, {{row['city']}}, {{row['state']}}, {{row['pincode']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Contact">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+        {{row['mobile1']}} / {{row['mobile2']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Edit" (activate)="onActivate($event)">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button class="download_button" >Edit</button>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Activate">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button *ngIf="row['status']"  [ngClass]="row['status'] ? 'activate_button' : 'deactivate_button'"  (click)="test($event,'activae')" >Activate</button>
+      <button  *ngIf="row['status'] == false"  [ngClass]="row['status'] ? 'activate_button' : 'deactivate_button'"  (click)="test($event,'activae')" >Deactivate</button>
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>
+</div>
+<div *ngIf='!hide && !showProduct && !showRto && !showQrcode'>
+  <ngx-datatable #myTable (activate)="onActivate($event)"  class="material bootstrap" [rows]="datalist" [columnMode]="ColumnMode.force" [limit]="10" [headerHeight]="50"
+  [footerHeight]="50" rowHeight="auto"   (page)="onPageChange($event)" [scrollbarV]="false" [sorts]="[{prop: 'createdDate', dir: 'desc'}]">
+  <ngx-datatable-column name="Name">
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Number of Vendors">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['numberofvendors']}}
+    </ng-template>
+  </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+<div *ngIf='showProduct'>
+  <ngx-datatable #myTable (activate)="onActivate($event)"  class="material bootstrap" [rows]="datalist" [columnMode]="ColumnMode.force" [limit]="10" [headerHeight]="50"
+  [footerHeight]="50" rowHeight="auto"   (page)="onPageChange($event)" [scrollbarV]="false" [sorts]="[{prop: 'createdDate', dir: 'desc'}]">
+  <ngx-datatable-column name="BrandName">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+    {{row['brandname']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="productname">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+    {{row['productname']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Cop Valid Till">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['copvalidtill']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Created Date">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['createdDate']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Cop Number">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['copnumber']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Edit" (activate)="onActivate($event)">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button class="download_button" >Edit</button>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Activate" >
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button *ngIf="row['status']"  [ngClass]="row['status'] ? 'activate_button' : 'deactivate_button'"  (click)="update('productid')" >Activate</button>
+      <button  *ngIf="row['status'] == false"  [ngClass]="row['status'] ? 'activate_button' : 'deactivate_button'"  (click)="update('productid')" >Deactivate</button>
+    </ng-template>
+  </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+<div *ngIf='showRto'>
+  <ngx-datatable #myTable (activate)="onActivate($event)"  class="material bootstrap" [rows]="datalist" [columnMode]="ColumnMode.force" [limit]="10" [headerHeight]="50"
+  [footerHeight]="50" rowHeight="auto"   (page)="onPageChange($event)" [scrollbarV]="false" [sorts]="[{prop: 'createdDate', dir: 'desc'}]">
+  <ngx-datatable-column name="Rto Name">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+    {{row['rtoname']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Address">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+    {{row['address']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Mobile Number">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['mobileno']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Created Date">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['createdDate']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Edit" (activate)="onActivate($event)">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button class="download_button" >Edit</button>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Activate" >
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button *ngIf="row['status']"  [ngClass]="row['status'] ? 'activate_button' : 'deactivate_button'"  (click)="update('rtoid')" >Activate</button>
+      <button  *ngIf="row['status'] == false"  [ngClass]="row['status'] ? 'activate_button' : 'deactivate_button'"  (click)="update('rtoid')" >Deactivate</button>
+    </ng-template>
+  </ngx-datatable-column>
+  </ngx-datatable>
+</div>
+<div *ngIf='showQrcode'>
+  <ngx-datatable #myTable (activate)="onActivate($event)"  class="material bootstrap" [rows]="datalist" [columnMode]="ColumnMode.force" [limit]="10" [headerHeight]="50"
+    [footerHeight]="50" rowHeight="auto"   (page)="onPageChange($event)" [scrollbarV]="false" [sorts]="[{prop: 'createdDate', dir: 'desc'}]">
+    
+<ngx-datatable-column name="Brand Name"  *ngIf="!show">
+  <ng-template let-row="row" ngx-datatable-cell-template>
+    {{row['brandname']}}
+  </ng-template>
+</ngx-datatable-column>
+<ngx-datatable-column name="Product Name"  *ngIf="!show">
+  <ng-template let-row="row" ngx-datatable-cell-template>
+    {{row['productname']}}
+    <!-- <img src="row['qrcodeimg']"> -->
+  </ng-template>
+</ngx-datatable-column>
+
+<ngx-datatable-column name="Lot Number"  *ngIf="!show">
+  <ng-template let-row="row" ngx-datatable-cell-template>
+    {{row['lotnumber']}}
+  </ng-template>
+</ngx-datatable-column>
+<ngx-datatable-column name="Mobile Number"  *ngIf="!show">
+  <ng-template let-row="row" ngx-datatable-cell-template>
+    {{row['mobileno']}}
+  </ng-template>
+</ngx-datatable-column>
+<ngx-datatable-column name="Created Date"  *ngIf="!show">
+  <ng-template let-row="row" ngx-datatable-cell-template>
+    {{row['createdDate']}}
+  </ng-template>
+</ngx-datatable-column>
+<ngx-datatable-column name="Qr Code"  *ngIf="!show">
+  <ng-template let-row="row" ngx-datatable-cell-template>
+    <!-- {{row['productname']}} -->
+    <qr-code  [value]="row['qrcodeimg']" [size]="width" [level]="level"></qr-code>
+    <!-- <img style="height: 50px;max-width: 50px;" [src]="row['qrcodeimg']"> -->
+  </ng-template>
+</ngx-datatable-column>
+</ngx-datatable>
+</div>

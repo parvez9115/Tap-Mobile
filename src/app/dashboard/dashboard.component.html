@@ -1,0 +1,39 @@
+<ion-header >
+  <ion-toolbar class="TapeHeader">  
+  <ion-row> 
+  <ion-menu-button></ion-menu-button> <ion-col size=8 id='title'> Tape Fitting </ion-col>
+</ion-row>
+</ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-row>
+    <ion-col id="card">
+     <ion-card *ngFor='let data of items' (click)='selectedCard(data)'>
+<div id="card-d">
+      <ion-text >{{data.ownerName}}</ion-text>
+    </div>
+    <div id="card-a">
+     <ion-text style="padding: 7px; background-color: #EEEEEE; border-radius: 7px;margin-left: -10px;">{{data.registrationNumber}}</ion-text>
+    </div>
+<ion-text id="card-b">{{data.createdDate.substring(0, 10)}}</ion-text>
+     <div id="card-c">
+     <ion-icon name="chevron-forward-outline" style="padding: 7px; background-color: #EEEEEE; border-radius: 5px; "></ion-icon>
+   </div>
+  </ion-card>
+</ion-col>
+</ion-row>
+
+  <div *ngIf='items.length == 0'  class="fitting">
+    No Fittings
+  </div>
+  <ion-row>
+    <ion-col size=6 offset=3>
+      <ion-button (click)='submit()' color='danger' expand="block" shape="round" id="btn">+ New Fittings</ion-button>
+    </ion-col>
+ 
+  </ion-row>
+
+</ion-content>

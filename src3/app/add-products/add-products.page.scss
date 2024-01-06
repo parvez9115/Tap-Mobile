@@ -1,0 +1,115 @@
+
+@media(min-width:320px)and(max-width:1023px){
+  *{
+    font-size: 11px;
+    margin: 0;
+    padding: 1px 0px 1px 1px;
+    font-weight: bold;
+  }
+ }
+.plateNo {
+  padding: 5px 0px 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: rgb(46, 44, 44);
+  text-align: end;
+}
+.product-card {
+  margin: 10px;
+  padding: 10px;
+  background: #f6f6f6;
+  border-radius: 10px;
+  border-left: 3px solid #cc2930;
+}
+.product-inner-card {
+  padding: 0px;
+  background: #e3dddd;
+  border-radius: 10px;
+  box-shadow: none !important;
+  color: rgb(46, 44, 44);
+}
+.data {
+  color: #837373;
+  font-family: sans-serif;
+  font-size: 11px;
+  margin: 0px 0px 0px 5px;
+}
+#cop-col {
+  border-top: 1px dotted #b3a6a6;;
+  text-align: center;
+  margin-top: 5px;
+  padding-top: 4px;
+}
+#edit-icon {
+  color:green;
+  font-size: 14px;
+}
+.fab-btn {
+  --background: lavender;
+  --box-shadow: none;
+  position: absolute;
+  top: -11px;
+  right: -3px;
+  height: 22px;
+  width: 22px;
+}
+.fab-btn:hover {
+  --background-hover: #b6b6b6;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: -10px;
+  margin-left: -40px;
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+.activate_button{
+  background: green;
+  padding: 4px;
+  height: 18px;
+  color: white;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 0px 0px 0px -3px;
+  }
+  .deactivate_button{
+    background: red;
+    padding: 4px;
+    height: 18px;
+  color: white;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 0px 0px 0px -3px;
+  }
+  .searchboxmobile{
+      margin: 0px 0px 0px 8px;
+       --background: #ede9e9;
+        border-radius: 10px;
+         height: 35px;
+          width: 95%;
+    }
+    .add-icon {
+      font-size: 32px;
+      color: white;
+    }
+
+    .rowSpacing{
+      padding: 10px;
+      justify-content: center; 
+    }

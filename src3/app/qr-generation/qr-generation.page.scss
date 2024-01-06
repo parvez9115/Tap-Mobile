@@ -1,0 +1,203 @@
+ion-input {
+    border: 6px solid #000000;
+    border-radius: 8px;
+    height: 38px !important;
+    line-height: 18px;
+    --padding-start: 15px;
+    background: #ffffff;
+}
+.input {
+    border: 6px solid #000000;
+    border-radius: 8px;
+    height: 38px !important;
+    line-height: 18px;
+    padding: 15px;
+    background: #ffffff;
+}
+
+.select {
+    border-radius: 8px;
+    height: 38px !important;
+    line-height: 18px;
+    padding: 8px;
+    background: #ffffff; 
+}
+
+#lot_wrapper{
+    font-weight:bolder;
+    width: 100%;
+    margin-left: 5px;
+    margin-top: -25px;
+    margin-bottom: 2px;
+    display: block;
+}
+#product_wrapper{
+    font-weight:bolder;
+    width: 100%;
+    margin-left: 5px;
+    margin-top: -5px;
+    margin-bottom: 2px;
+    display: block;
+}
+.label_wrapper{
+    font-weight:bolder;
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 14px;
+    margin-bottom: 2px;
+    display: block;
+}
+.number_wrapper{
+    font-weight:bolder;
+    width: 100%;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    display: block;
+}
+#lot_mandary{
+    color: darkblue;
+    font-weight:bolder;
+    margin-left: 6px;
+    margin-top: 5px;
+    display: flex;
+}
+@media (max-width: 320px) and (max-width: 350px) and (max-width: 361px) {
+    #lot_mandary{
+        color: darkblue;
+        font-weight:bolder;
+        margin-left: 6px;
+        margin-top: 5px;
+        display: flex;
+        font-size: 10px;
+    }
+    #lot_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: -25px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    #product_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: -5px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    .label_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: 14px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    .number_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 380px) and (max-width: 420px){
+    #lot_mandary{
+        color: darkblue;
+        font-weight:bolder;
+        margin-left: 6px;
+        margin-top: 5px;
+        display: flex;
+        font-size: 12px;
+    }
+    #lot_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: -25px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    #product_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: -5px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    .label_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: 14px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    .number_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+}
+@media (max-width: 425px) and (max-width: 550px){
+    #lot_mandary{
+        color: darkblue;
+        font-weight:bolder;
+        margin-left: 6px;
+        margin-top: 5px;
+        display: flex;
+        font-size: 12px;
+    }
+    #lot_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: -25px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    #product_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: -5px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    .label_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: 14px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+    .number_wrapper{
+        font-weight:bolder;
+        width: 100%;
+        margin-left: 5px;
+        margin-top: 10px;
+        margin-bottom: 2px;
+        display: block;
+        font-size: 14px;
+    }
+}

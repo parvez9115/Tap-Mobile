@@ -1,0 +1,183 @@
+.searchInput{
+  padding: 0px;
+  margin: 0px;
+  width: 50%;
+}
+.rowSpacing{
+  padding: 10px;
+  justify-content: center; 
+}
+
+.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: normal !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  // background-color:#3880ff;
+  color: white;
+  // height: 34px;
+  border-radius: 7px;
+  align-self: center;
+}
+
+.dropdown-content {
+  text-align: center;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+    text-align: left;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+.searchboxmobile{
+  margin: 0px 0px 0px 8px;
+   --background: #ede9e9;
+    border-radius: 10px;
+     height: 35px;
+      width: 95%;
+}
+.certificate_label
+{
+font-size: 14px;
+font-weight: 600;
+color: #2E2C2C;
+margin: 0px 0px 0px 10px;
+}
+.certificate_data
+{
+font-size: 14px;
+font-weight: 500;
+color: #bdbdbd;
+margin: 0px 0px 0px 25px;
+}
+
+
+
+
+#card_style{
+background: #f6f6f6;
+  border-radius: 10px;
+  border-left: 3px solid #cc2930;
+}
+.activate_button{
+background: green;
+height: 20px;
+color: white;
+border-radius: 5px;
+font-weight: 600;
+font-size: 12px;
+margin: 0px 0px 0px 5px;
+}
+.deactivate_button{
+  background: red;
+  height: 20px;
+color: white;
+border-radius: 5px;
+font-weight: 600;
+font-size: 12px;
+margin: 0px 0px 0px 5px;
+}
+.button-style{
+  font-size: 12px;
+  font-weight: 600;
+  margin: 0px 0px 0px 25px;
+  color: #bdbdbd;
+}
+@media (max-width: 320px) and (max-width: 350px) and (max-width: 361px) {
+  .buttons{
+    margin-left: 2.5rem;
+    text-align: center;
+  }
+  .certificate_label
+  {
+    font-size: 10px;
+    font-weight: 700;
+    color: #2E2C2C;
+    margin: 0px 0px 0px 10px;
+  }
+  .certificate_data
+  {
+    font-size: 10px;
+    font-weight: bold;
+    color: #bdbdbd;
+    margin: 0px 0px 0px 25px;
+  }
+  .button-style{
+    font-size: 10px;
+    font-weight: 500;
+    margin: 0px 0px 0px 25px;
+    color: #bdbdbd;
+  }
+}
+#edit-icon {
+  color:green;
+  font-size: 17px;
+}
+.fab-btn {
+  --background: lavender;
+  --box-shadow: none;
+  position: absolute;
+  top: -4px;
+  right: -3px;
+  height: 30px;
+  width: 30px;
+}
+.fab-btn:hover {
+  --background-hover: #b6b6b6;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: transparent;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: -8px;
+  margin-left: -6px;
+  position: absolute;
+  z-index: 1;
+  font-size: 10px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}

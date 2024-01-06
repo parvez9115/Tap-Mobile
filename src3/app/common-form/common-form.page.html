@@ -1,0 +1,439 @@
+<ion-content>
+
+  <ion-card class="topBorder" style="height: 96%;overflow: scroll;">
+    <ion-card-content style="padding: 0px;">
+      <ion-row class="headingClass">
+        <ion-label>{{creation}}</ion-label>
+      </ion-row>
+      <form [formGroup]="profileForm">
+        <ion-row >
+          <ion-col class='headerSize'>RTO Details</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col *ngIf="formVisible.includes('rtoZone')" size='12' size-md="6" size-lg="3" size-xl="6" size-xxl="6">
+            <ion-item (click)="updateAnswer($event)">
+              <ion-label>{{selectedRto}} </ion-label>
+              <ion-select multiple="true" formControlName="rtoZone" (ionChange)="updateAnswer($event)">
+                <ion-select-option *ngFor="let rto of rtoAreaCode" placeholder="Select rto zone">{{rto}}</ion-select-option>
+               </ion-select>
+              <!-- <input style="width: 100%;
+              height: 47px;
+              border: 0px;" list="rto" formControlName="rtoZone" placeholder='Select rto zone'
+                style="padding: 0px; " />
+                <datalist id="rto">
+                <option *ngFor="let rto of rtoAreaCode">{{rto}}</option>
+              </datalist> -->
+              <!-- <ion-select formControlName="rtoZone">
+                <ion-select-option *ngFor="let rto of rtoAreaCode" placeholder="select">{{rto}} </ion-select-option>
+              </ion-select> -->
+            </ion-item>
+            <div *ngIf="profileForm.controls.rtoZone.invalid">
+              <div *ngIf="profileForm.controls.rtoZone.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('roleName')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item (click)="changeDealer()">
+              <ion-label>{{selectedDealer}} </ion-label>
+              <ion-select formControlName="roleName">
+                <ion-select-option *ngFor="let role of role" placeholder="select">{{role}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="profileForm.controls.roleName.invalid">
+              <div *ngIf="profileForm.controls.roleName.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="formVisible.includes('name')">
+          <ion-col class='headerSize'>Customer Information</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col *ngIf="formVisible.includes('name')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
+            </ion-item>
+            <div *ngIf="profileForm.controls.name.invalid">
+              <div *ngIf="profileForm.controls.name.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('password')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="key"></ion-icon>
+              <ion-input [type]="password_type " placeholder="Password" formControlName="password"></ion-input>
+              <ion-icon (click)="showHidePass()" slot="end" [name]="eye_icon"></ion-icon>
+            </ion-item>
+            <div *ngIf="profileForm.controls.password.invalid">
+              <div *ngIf="profileForm.controls.password.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('email')" size='12'>
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="mail"></ion-icon>
+              <ion-input type="text" placeholder="E-mail" formControlName="email"></ion-input>
+            </ion-item>
+            <div *ngIf="profileForm.controls.email.invalid">
+              <div *ngIf="profileForm.controls.email">
+                This Field is Required, Enter correct Mail Id.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('mobile1')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="call"></ion-icon>
+              <ion-input type="text" placeholder="Contact No 1" maxlength="10"  formControlName="mobile1">
+              </ion-input>
+            </ion-item>
+            <div *ngIf="profileForm.controls.mobile1.invalid" class="alert alert-danger">
+              <div *ngIf="profileForm.controls.mobile1.errors.required">
+                This Field is Required,Enter 10 digits
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('mobile2')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="call"></ion-icon>
+              <ion-input type="text" placeholder="Contact No 2" maxlength="10" formControlName="mobile2"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('addressLine')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="locate"></ion-icon>
+              <ion-input type="text" placeholder="Address Line1" formControlName="addressLine"></ion-input>
+            </ion-item>
+            <div *ngIf="profileForm.controls.addressLine.invalid" class="alert alert-danger">
+              <div *ngIf="profileForm.controls.addressLine.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('tradeNumber')" size='12' size-md="6" size-lg="6" size-xl="6" size-xxl="6">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="document-outline"></ion-icon>
+              <ion-input type="text" placeholder="Trade Certificate Number" formControlName="tradecertificateno"></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col *ngIf="formVisible.includes('city')" size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="4">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="navigate"></ion-icon>
+              <ion-input type="text" placeholder="City" formControlName="city"></ion-input>
+            </ion-item>
+            <div *ngIf="profileForm.controls.city.invalid" class="alert alert-danger">
+              <div *ngIf="profileForm.controls.city.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('state')" size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="4">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="globe"></ion-icon>
+              <!-- <ion-input type="text" placeholder="State" formControlName="state"></ion-input> -->
+              <input style="
+              height: 47px;
+              border: 0px;" list="state" formControlName="state" placeholder='Enter state name'
+                style="padding: 0px; " />
+
+              <datalist id="state">
+                <option *ngFor="let state of stateList">{{state}}</option>
+              </datalist>
+            </ion-item>
+            <div *ngIf="profileForm.controls.state.invalid" class="alert alert-danger">
+              <div *ngIf="profileForm.controls.state.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('pincode')" size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="4">
+            <ion-item class=" labelSpacing">
+              <ion-icon slot="start" name="mail"></ion-icon>
+              <ion-input type="text" maxlength='6' placeholder="Pincode" formControlName="pincode"></ion-input>
+            </ion-item>
+            <div *ngIf="profileForm.controls.pincode.invalid" class="alert alert-danger">
+              <div *ngIf="profileForm.controls.pincode.errors.required">
+                This Field is Required.
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row *ngIf="formVisible.includes('manufactureYear') || formVisible.includes('registrationNumber')">
+          <ion-col class='headerSize'> Certificate Creation</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col *ngIf="formVisible.includes('registrationNumber')" size='12' size-md="6" size-lg="3" size-xl="4"
+            size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="card"></ion-icon>
+              <ion-input type="text" placeholder="Registration Number" formControlName="registrationNumber"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('manufactureYear')" size='12' size-md="6" size-lg="4" size-xl="4"
+            size-xxl="6">
+            <ion-item>
+              <!-- <ion-icon name="list-box"></ion-icon>/ -->
+              <ion-label> Select Manufacturer Year </ion-label>
+              <ion-datetime formControlName="manufactureYear" class="dateFormat" displayFormat="YYYY"
+                pickerFormat="YYYY" placeholder="YYYY" [max]="maxDate">
+              </ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('chassisNum')" size='12' size-md="6" size-lg="4" size-xl="4"
+            size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="text" placeholder="Chassis Number" formControlName="chassisNum"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('engineNumber')" size='12' size-md="6" size-lg="4" size-xl="4"
+            size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="calculator"></ion-icon>
+              <ion-input type="text" placeholder="Engine Number" formControlName="engineNumber"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col *ngIf="formVisible.includes('vehicleMake')" size='12' size-md="6" size-lg="4" size-xl="4"
+            size-xxl="6">
+            <ion-item (keyup)="changeEmpyVehicle($event)">
+              <!-- <ion-icon name="list-box"></ion-icon>/ -->
+              <ion-label>Select Vehicle</ion-label>
+              <input style="width: 100%;
+                height: 47px;
+                border: 0px;" list="vehicle" [(ngModel)]="data" formControlName="vehicleMake"
+                placeholder='Select vehicle company' style="padding: 0px; " />
+              <datalist id="vehicle">
+                <option *ngFor="let vehicle of vehicleList">{{vehicle}}</option>
+              </datalist>
+              <!-- <ion-select formControlName="vehicleMake">
+                <ion-select-option *ngFor="let vehicle of vehicleList" [value]="vehicle" placeholder="vehicle">{{vehicle}}</ion-select-option>
+              </ion-select> -->
+            </ion-item>
+          </ion-col>
+
+          <ion-col *ngIf="formVisible.includes('vehicleModel')" size='12' size-md="6" size-lg="4" size-xl="4"
+            size-xxl="6">
+            <ion-item (ionChange)="vehicleTypeLength($event)">
+              <ion-label>Vehicle Model</ion-label>
+              <ion-select formControlName="vehicleModel">
+                <ion-select-option *ngFor="let vehicleModal of vehicleModal[data]" [value]="vehicleModal"
+                  placeholder="Address">{{vehicleModal}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+        <ion-row *ngIf="formVisible.includes('stocks')">
+          <ion-col class='headerSize'>Stocks</ion-col>
+        </ion-row>
+        <ion-row *ngIf="formVisible.includes('stocks')">
+          <ion-col *ngIf="formVisible.includes('assign') && pageType != 'Certificate'" size='12'
+            style="text-align: right;">
+            <ion-item [disabled]='false' (ionChange)="selectedDashData($event)">
+              <!-- <ion-icon name="list-box"></ion-icon>/ -->
+              <ion-label> Select Dealer</ion-label>
+              <ion-select>
+                <ion-select-option *ngFor="let user of dashboardData" [value]="user">{{user.userId}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-col>
+
+
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="Red 20mm" formControlName="sred20mm" #a
+                (ionChange)="changeDatas(a,'sred20mm',$event)"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="Red 50mm" formControlName="sred50mm" #b
+                (ionChange)="changeDatas(b,'sred50mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="Red 80mm" formControlName="sred80mm" #c
+                (ionChange)="changeDatas(c,'sred80mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="White 20mm" formControlName="swhite20mm" #d
+                (ionChange)="changeDatas(d,'swhite20mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="White 50mm" formControlName="swhite50mm" #e
+                (ionChange)="changeDatas(e,'swhite50mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="White 80mm" formControlName="swhite80mm" #f
+                (ionChange)="changeDatas(f,'swhite80mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="Yellow 20mm" formControlName="syellow20mm" #g
+                (ionChange)="changeDatas(g,'syellow20mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="Yellow 50mm" formControlName="syellow50mm" #h
+                (ionChange)="changeDatas(h,'syellow50mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="bookmarks"></ion-icon>
+              <ion-input type="number" placeholder="Yellow 80mm" formControlName="syellow80mm" #i
+                (ionChange)="changeDatas(i,'syellow80mm')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="calculator"></ion-icon>
+              <ion-input type="text" placeholder="Class 3" formControlName="class3" #j
+                (ionChange)="changeDatas(j,'class3')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="calculator"></ion-icon>
+              <ion-input type="text" placeholder="Class 4" formControlName="class4" #k
+                (ionChange)="changeDatas(k,'class4')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+          <ion-col size='12' size-md="6" size-lg="4" size-xl="4" size-xxl="6">
+
+            <ion-item class=" labelSpacing">
+
+              <ion-icon slot="start" name="calculator"></ion-icon>
+              <ion-input type="text" placeholder="Hologram" formControlName="hologram" #l
+                (ionChange)="changeDatas(l,'hologram')"></ion-input>
+            </ion-item>
+
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="formVisible.includes('images')">
+          <ion-col class='headerSize'>Uploading Images</ion-col>
+        </ion-row>
+        <div>
+          <ion-row *ngIf="formVisible.includes('images')">
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <ion-row>
+                <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                 <label class="heading_label">Front Image</label>
+                  </ion-col>
+                  <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                    <input  type="file" class="documents"   ng2FileSelect [uploader]="front" />
+                     </ion-col>
+               </ion-row>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <ion-row>
+                <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                 <label class="heading_label">Back Image</label>
+                  </ion-col>
+                  <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                    <input  type="file" class="documents"   ng2FileSelect [uploader]="back" />
+                     </ion-col>
+               </ion-row>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <ion-row>
+                <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                 <label class="heading_label">Right Image</label>
+                  </ion-col>
+                  <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                    <input  type="file" class="documents"   ng2FileSelect [uploader]="right" />
+                     </ion-col>
+               </ion-row>
+            </ion-col>
+            <ion-col size="12" size-sm="12" size-md="6" size-lg="6">
+              <ion-row>
+                <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                 <label class="heading_label">Left Image</label>
+                  </ion-col>
+                  <ion-col  size-sm="6" size-md="6" size-lg="6" class="head">
+                    <input  type="file" class="documents"   ng2FileSelect [uploader]="left" />
+                     </ion-col>
+               </ion-row>
+            </ion-col>
+          </ion-row>
+          </div>
+      </form>
+
+    </ion-card-content>
+    <ion-row>
+      <ion-col size="12" style="text-align: center !important;">
+        <ion-button shape="round" class="submitBtn" (click)="submit()">submit</ion-button>
+        <ion-button shape="round" class="submitBtn" (click)="closeModel()">Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+
+</ion-content>

@@ -1,0 +1,92 @@
+.downloadPdf{
+    align-self: center;
+    text-align: center;
+    /* font-size: 15px; */
+    color: black;
+    background: #d8d8d8;
+    border-radius: 19px;
+}
+
+.rowSpacing{
+    padding: 10px;
+    justify-content: center; 
+}
+
+ion-datetime{
+    border: 1px solid;
+    font-family: inherit;
+    font-size: 13px;
+    font-style: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    text-decoration: inherit;
+    text-indent: inherit;
+    text-overflow: inherit;
+    text-transform: inherit;
+    text-align: inherit;
+    white-space: inherit;
+    color: gray;
+    flex: 1 1 0%;
+    min-height: inherit;
+    direction: ltr;
+    overflow: inherit;
+}
+
+.searchInput{
+    padding: 0px;
+    margin: 0px;
+    width: 50%;
+}
+.Searchbox
+{
+    height: 38px;
+    width: 100%;
+    text-align-last: center;
+    border: 1px solid gray;
+    font-size: 13px; 
+    color: gray;
+    outline-color: gray;
+}
+.searchboxmobile{
+    padding: 0px;
+    margin: 0px;
+    --background: #ede9e9;
+    border-radius: 10px;
+    height: 35px;
+}
+
+.certificate_label
+{
+  font-size: 14px;
+  font-weight: 500;
+  color: #2E2C2C;
+  margin: 0px 0px 0px 10px;
+}
+.certificate_data
+{
+  font-size: 14px;
+  font-weight: 500;
+  color: #bdbdbd;
+  margin: 0px 0px 0px 25px;
+}
+#card_style{
+  background: #f6f6f6;
+    border-radius: 10px;
+    border-left: 3px solid #cc2930;
+}
+@media (max-width: 320px) and (max-width: 350px) and (max-width: 361px) {
+    .certificate_label
+    {
+      font-size: 10px;
+      font-weight: 700;
+      color: #2E2C2C;
+      margin: 0px 0px 0px 10px;
+    }
+    .certificate_data
+    {
+      font-size: 10px;
+      font-weight: bold;
+      color: #bdbdbd;
+      margin: 0px 0px 0px 25px;
+    }
+}

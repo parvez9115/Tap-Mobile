@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+ <ion-row> <ion-col style="font-size: 20px;"><ion-icon id="headIcon" name="people-circle-outline"></ion-icon>
+   Hello, &nbsp;{{username}}</ion-col> </ion-row> 
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let items of images">
+      <img [src]="items">
+    </ion-slide>
+  </ion-slides>
+  <ion-row>
+    <!-- [routerLink]="items.route"  -->
+    <ion-col style="    padding: 0px;" size="4" *ngFor="let items of landingitems">
+      <ion-card (click)="enableMenu(items)">
+      <ion-col  *ngIf="items.onprogress" id="progress">{{items.onprogress}}</ion-col>
+     <ion-row> <ion-col class="ion-text-center"> <ion-icon [src]="items.img"></ion-icon></ion-col></ion-row>  
+        {{items.name | uppercase}}
+      
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  
+</ion-content>

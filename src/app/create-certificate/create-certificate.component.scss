@@ -1,0 +1,78 @@
+.TapeHeader{
+    --background: hsl(352, 81%, 64%);
+    color: white; 
+}
+
+@media only screen and(min-width:320px)and(max-width:767px){
+    .wrapper-container{
+        zoom:80%;
+    }
+    }
+
+  @media only screen and(min-width:768px){
+    .wrapper-container{
+        zoom:90%;
+        padding: 20px;
+    }
+    }
+
+    .modal_wrapper{
+        padding: 0px 0px 0px 18px;
+        width: 90%;
+        height: 35px;
+        outline-color: rgb(210, 214, 210);
+        margin: 10px 0px 0px 25px;
+        font-size: 18px;
+    }
+
+
+    .head{
+font-weight: bold;
+    }
+	
+ion-input{
+
+    border: 1px solid;
+
+    }
+
+	.label_style{
+    font-size: 18px;
+    margin: 0px 0px 0px 25px;
+    }
+
+    .item_style{
+        padding: 25px 0px 0px 0px
+    }
+
+    .header_style{
+        margin: 0px 0px 0px 17px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+     #btn{
+        --background:#3880ff;
+        width: 80%;
+    }
+    .card_style{
+        text-align:center;
+        width: 90%;
+        height: 90px;
+        background: #cfcdca;
+    }
+    label {
+        position: relative;
+    top: 25px;
+    font-size: 19px;
+    }
+
+    ion-img{
+        top: 20px;
+        position: absolute;
+    }
+
+    ion-select{
+        margin: 4px 20px 0px 25px;
+        border: 1px solid;
+    }

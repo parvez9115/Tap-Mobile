@@ -1,0 +1,29 @@
+<ion-header  *ngIf="myPlatform == 'desktop'">
+  <ion-toolbar>
+    <ion-row >
+      <ion-col size = 12>
+        <ion-title>Users</ion-title>
+      </ion-col>
+      <!-- <ion-col (click)="generatePdf()" class="downloadPdf" size = 1>
+        <ion-icon name ="print"></ion-icon>
+        <ion-label >PDF</ion-label>
+      </ion-col> -->
+    </ion-row>  
+  </ion-toolbar>
+</ion-header>
+<ion-header *ngIf="myPlatform != 'desktop'">
+  <ion-toolbar>
+    <ion-row> 
+      <ion-menu-button></ion-menu-button> <ion-col size=8 id='title' style="align-self: center;">Users</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<app-super-admin  *ngIf="page !='Dealer'"  (refresh)='getLoginUserList()'    [userRole]="page" [memberList]="member"></app-super-admin>
+<app-manufacturer *ngIf="page =='manufacturer'"></app-manufacturer>
+<app-dealer *ngIf="page =='Dealer'" [userRole]="page" [memberList]="member"></app-dealer>
+</ion-content>
+<!-- <app-super-admin  *ngIf="page !='Dealer' || != 'User'" [userRole]="page" [memberList]="member"></app-super-admin>
+<app-manufacturer *ngIf="page =='manufacturer'"></app-manufacturer>
+<app-dealer *ngIf="page =='Dealer' || == 'User'" [userRole]="page" [memberList]="member"></app-dealer> -->

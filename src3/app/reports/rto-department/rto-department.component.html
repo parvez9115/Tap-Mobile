@@ -1,0 +1,5 @@
+<ion-row class="ion-text-left">
+  <ion-col class='header'>RTO Department Statistics</ion-col>
+  <ion-col class='header'><ion-input type=text placeholder="Search here..." style='border: 1px solid;' (keyup)="updateFilter($event)" ></ion-input></ion-col>
+   </ion-row>
+<app-ngx-table #myTable [datalist]="memberList" (selectedRowData)="selectedRowRecived($event)"></app-ngx-table>

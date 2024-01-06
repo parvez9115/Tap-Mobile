@@ -1,0 +1,58 @@
+<ngx-datatable #myTable (activate)="onActivate($event)" class="material bootstrap" [rows]="datalist"
+  [columnMode]="ColumnMode.force" [limit]="5" [headerHeight]="50" [footerHeight]="50" rowHeight="auto"
+  [scrollbarV]="false" [sorts]="[{prop: 'createdDate', dir: 'desc'}]">
+
+  <ngx-datatable-column name="Certificate Id">
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Registration No">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['registrationNumber']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Owner Name">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['ownerName']}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Product Name">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row['ownerName']}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Passing Rto">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+        {{row['rtoZone']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Vehicle Type">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+        {{row['vehicleMake']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Vehicle Model">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+        {{row['vehicleModel']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <!-- <ngx-datatable-column name="Rto Status">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <span>
+        {{row['rtoStatus']}}
+      </span>
+    </ng-template>
+  </ngx-datatable-column> -->
+  <ngx-datatable-column name="Operations">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      <button class="download_button">{{operation}}</button>
+    </ng-template>
+  </ngx-datatable-column>
+</ngx-datatable>

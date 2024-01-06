@@ -1,0 +1,35 @@
+ion-col {
+    ion-icon{
+    font-size: 4rem;
+}
+}
+ion-card{
+    text-align: center;
+    font-size: bold;
+    font-size: 12px;
+    height: 8rem;
+    padding: 7px;
+    border: 1px solid  #ed576b;
+    // padding: 2rem 0px 0px 0px;
+}
+
+#headIcon{
+    font-size: 3rem;
+    color: #ed576b;
+}
+ion-slides {
+    height: 38%;
+  }
+
+#progress{
+    font-size: 12px;
+    border: 1px solid;
+    border-radius: 18px;
+    /* background-color: indianred; */
+    padding: 2px;
+    background: linear-gradient(180deg, #c7ffdb 60%, #97ff98 60%);
+}
+
+ion-content{
+    --background: linear-gradient(117deg, #fe9aa7 35%, #eb445a 60%);
+}

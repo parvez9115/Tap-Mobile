@@ -1,0 +1,120 @@
+<ion-app>
+  <ion-split-pane style="--side-width: 0px; " contentId="main-content">
+    <ion-menu style="border-right: 1px solid #d7d8da;" contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <!-- <ion-list-header>Welcome {{loginCreation.name}}</ion-list-header>
+          <ion-note style="margin-bottom: 3px;">{{loginCreation.roleName}},</ion-note>
+          <ion-row>
+            <ion-note>{{loginCreation.email}}</ion-note>
+          </ion-row> -->
+          <ion-row style="background-color: #ffffff; color:rgb(0, 0, 0);">
+            <ion-col size=12>
+              <ion-img style="height: 75px; padding: 0px;" src="https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/Company/Techno_Jacks.png"></ion-img>
+            </ion-col>
+            <ion-col size=12 style=' padding: 0px;'>
+              <!-- <div class="header" style="float: right;color: gray;font-size: 16px;font-weight: bold;">Welcome <span class="name">{{loginCreation.email}},</span></div> -->
+              <div class="header" style="float: right;color: gray;font-size: 13px;font-weight: bold;margin: 0px 8px 10px 0px;">Welcome <span class="name">{{name}}</span></div>
+            </ion-col>
+          </ion-row>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+              detail="false" [class.selected]="selectedIndex == i">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <div *ngIf=' data != undefined && data["role"]["roleName"] != "SuperAdmin"'>
+          <ion-row style="text-align: center;border-radius: 6px;" class="row">
+          <ion-col size=3 style='align-self: center;'>
+           <ion-icon style='align-self: center; height: 15px;width: 15px;background-color: red;
+              border-radius: 50%;'></ion-icon><br>Red
+            </ion-col>
+
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.sred20mm}}</ion-row>
+              <ion-row class='classDatas header'>20mm</ion-row>
+            </ion-col>
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.sred50mm}} </ion-row>
+              <ion-row class='classDatas header'>50mm</ion-row>
+            </ion-col>
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.sred80mm}}</ion-row>
+              <ion-row class='classDatas header'>80mm</ion-row>
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="text-align: center;border-radius: 6px;" class="row">
+
+            <ion-col size=3 style='align-self: center;'>
+              <ion-icon style='align-self: center; height: 15px;width: 15px;background-color: white;
+          border-radius: 50%;'></ion-icon>White
+            </ion-col>
+
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.swhite20mm}}</ion-row>
+              <ion-row class='classDatas header'>20mm</ion-row>
+            </ion-col>
+            <ion-col size=3>
+              <ion-row class='classDatas values' class='classDatas values'>{{data.swhite50mm}} </ion-row>
+              <ion-row class='classDatas header'>50mm</ion-row>
+            </ion-col>
+            <ion-col size=3>
+              <ion-row class='classDatas' class='classDatas values'>{{data.swhite80mm}}</ion-row>
+              <ion-row class='classDatas header'>80mm</ion-row>
+            </ion-col>
+          </ion-row>
+
+          <ion-row style="text-align: center;border-radius: 6px;" class="row">
+            <!-- <div style='align-self: center; height: 15px;width: 15px;background-color: yellow;
+    border-radius: 50%;'></div> -->
+            <ion-col size=3 style='align-self: center;'>
+              <ion-icon style='align-self: center; height: 15px;width: 15px;background-color: yellow;
+      border-radius: 50%;'></ion-icon>Yellow
+            </ion-col>
+
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.syellow20mm}}</ion-row>
+              <ion-row class='classDatas header'>20mm</ion-row>
+            </ion-col>
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.syellow50mm}} </ion-row>
+              <ion-row class='classDatas header'>50mm</ion-row>
+            </ion-col>
+            <ion-col size=3>
+              <ion-row class='classDatas values'>{{data.syellow80mm}}</ion-row>
+              <ion-row class='classDatas header'>80mm</ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row style="text-align: center;" class="row">
+
+            <ion-col size=4 style='align-self: center;'>Class</ion-col>
+
+            <ion-col size=4>
+              <ion-row class='classDatas values'>{{data.class3}}</ion-row>
+              <ion-row class='classDatas' class='classDatas header'>3</ion-row>
+            </ion-col>
+            <ion-col size=4>
+              <ion-row class='classDatas values'>{{data.class4}}</ion-row>
+              <ion-row class='classDatas' class='classDatas header'>4</ion-row>
+            </ion-col>
+          </ion-row>
+          <ion-row style="text-align: center;" class="row">
+
+            <ion-col size=5>Hologram</ion-col>
+
+            <ion-col size=7>
+              <ion-row class='classDatas values'>{{data.hologram}}</ion-row>
+            </ion-col>
+
+          </ion-row>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

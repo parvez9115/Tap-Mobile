@@ -1,0 +1,210 @@
+<ion-header  >
+  <ion-toolbar mode="md"  class="TapeHeader">
+     <ion-buttons slot="start">
+       <ion-menu-button></ion-menu-button>
+     </ion-buttons>
+         <ion-title >Certificate creation</ion-title>
+   </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col class='ion-text-center' size=6 class='head'>Qr Code Serial Number</ion-col><ion-col class='ion-text-center' size=6>{{lotNumber}}</ion-col>
+  <ion-col class='ion-text-left' size=6 class='head'>Product Name</ion-col><ion-col class='ion-text-center' size=6>{{productName}}</ion-col>
+  <ion-col class='ion-text-left' size=6 class='head'>RTO Zone</ion-col><ion-col class='ion-text-center' size=6>{{rtoZone}}</ion-col>
+</ion-row>
+<ion-row>
+
+<ion-col size="12" class="wrapper-container">
+  <form [formGroup]="certificatedetails">
+  <ion-row>
+   
+    <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+  
+      <ion-item class="item_style" (click)="userarrow()">
+        <span class="header_style">User Details</span>
+        <ion-icon slot="end" name="caret-down-outline" ></ion-icon>
+      </ion-item>
+      <ion-row *ngIf="user">
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">Owner Name:</ion-label>
+            <input  placeholder='Owner Name' formControlName="OwnerName" class="modal_wrapper" />
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+       <ion-label class="label_style">Phone Number:</ion-label>
+            <input type="number" placeholder='Phone Number' formControlName="PhoneNo" class="modal_wrapper" />
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">Fitment Date:</ion-label>
+            <input  type="date"  placeholder='User Details' formControlName="FitmentDate" class="modal_wrapper" />
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+      <ion-item class="item_style" (click)="vehiclearrow()">
+        <span class="header_style">Vehicle Details</span>
+        <ion-icon slot="end" name="caret-down-outline"></ion-icon>
+      </ion-item>
+      <ion-row *ngIf="vehicle" >
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">Vehicle Registration Number:</ion-label>
+            <input  placeholder='Vehicle Registration Number' formControlName="RegistrationNo" class="modal_wrapper" />
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">Chassis/Engine Number:</ion-label>
+            <input  placeholder='Chassis/Engine Number' formControlName="ChassisNo" class="modal_wrapper" />
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">Registration Year:</ion-label>
+            <input  placeholder='Registration Year' formControlName="RegistrationYear" class="modal_wrapper" />
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">Fuel Type:</ion-label>
+            <!-- <input  list="fueltype" placeholder='Fuel Type' formControlName="Fueltype" class="modal_wrapper" />
+            <datalist id="fueltype">
+              <option *ngFor="let fueltype of fueltypes">{{fueltype}}</option>
+            </datalist> -->
+            <ion-select placeholder="Fueltype" formControlName="Fueltype">
+              <ion-select-option value={{fueltype}} *ngFor="let fueltype of fueltypes">{{fueltype}}</ion-select-option>
+            </ion-select>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+      <ion-item class="item_style" (click)="certificatearrow()">
+        <span class="header_style">Certificate Details</span>
+        <ion-icon slot="end" name="caret-down-outline" ></ion-icon>
+      </ion-item>
+      <ion-row *ngIf="certificate" >
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+             <ion-label class="label_style">Vehicle Make:</ion-label>
+            <input  list="certificate" (change)='getVehicleCategory()'  placeholder='Vehicle Make' formControlName="Make" class="modal_wrapper" />
+            <datalist id="certificate">
+              <option *ngFor="let vehiclecategory of vehtype | keyvalue" value={{vehiclecategory.key}}>{{vehiclecategory.key}}</option>
+            </datalist>
+      
+            <!-- <ion-select placeholder='Vehicle Make' (ionChange)='getVehicleCategory()' formControlName="Make">
+              <ion-select-option value={{vehicletype.key}}  *ngFor="let vehicletype of vehtype | keyvalue">{{vehicletype.key}}</ion-select-option>
+            </ion-select> -->
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12" *ngIf="!vehCheck">
+          <ion-label class="label_style">Vehicle Category:</ion-label>
+          <ion-input placeholder='Vehicle Category'  class="modal_wrapper" ></ion-input>
+          <!-- <ion-select placeholder='Vehicle Category' formControlName="Model">
+            <ion-select-option value={{vehiclecategory}}  *ngFor="let vehiclecategory of vehcategory">{{vehiclecategory}}</ion-select-option>
+          </ion-select> -->
+      </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12" *ngIf="vehCheck">
+            <ion-label class="label_style">Vehicle Category:</ion-label>
+            <input type="text"  list="vehiclecategory" placeholder='Vehicle Category' formControlName="Model" class="modal_wrapper" />
+            <datalist id="vehiclecategory">
+              <option *ngFor="let vehicle of vehcategory" value={{vehicle}}>{{vehicle}}</option>
+            </datalist>
+            <!-- <ion-select placeholder='Vehicle Category' formControlName="Model">
+              <ion-select-option value={{vehiclecategory}}  *ngFor="let vehiclecategory of vehcategory">{{vehiclecategory}}</ion-select-option>
+            </ion-select> -->
+        </ion-col>
+        <!-- <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">C3 Quantity:</ion-label>
+            <input   placeholder='C3 Quantity' formControlName="C3Quantity" class="modal_wrapper" />
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">CT Quantity:</ion-label>
+            <input   placeholder='CT Quantity' formControlName="CTQuantity" class="modal_wrapper" />
+        </ion-col> -->
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+      <ion-item class="item_style" (click)="otherarrow()">
+        <span class="header_style">Other Details</span>
+        <ion-icon slot="end" name="caret-down-outline" ></ion-icon>
+      </ion-item>
+      <ion-row *ngIf="other" >
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-label class="label_style">RTO Code:</ion-label>
+            <!-- <input  list="rtocode" placeholder='RTO Code' formControlName="rtocode" class="modal_wrapper" />
+            <datalist id="rtocode">
+              <option *ngFor="let rtocode of rtocode">{{rtocode}}</option>
+            </datalist> -->
+            <ion-select placeholder='RTO Code' formControlName="rtocode">
+              <ion-select-option value={{rtocode}}  *ngFor="let rtocode of rtocode">{{rtocode}}</ion-select-option>
+            </ion-select>
+        </ion-col>
+        <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+          <ion-label class="label_style">Additional Photo:</ion-label>
+          <ion-row>
+            <ion-col size='6' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+              <ion-card class="card_style" (click)='startCam("photo1")'> 
+                <ion-img *ngIf="photos.photo1 != ''" class="parentAppLogo" src={{Showphotos.photo1}}></ion-img>
+                <label *ngIf="photos.photo1 == ''">Click here add Front Photo</label>
+              </ion-card>
+            </ion-col>
+            <ion-col size='6' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+              <ion-card class="card_style" (click)='startCam("photo2")'>
+                <ion-img *ngIf="photos.photo2 != ''" src={{Showphotos.photo2}}></ion-img>
+                <label *ngIf="photos.photo2 == ''">Click here add Back Photo</label>
+              </ion-card>
+            </ion-col>
+            <ion-col size='6' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+              <ion-card class="card_style" (click)='startCam("photo3")'>
+                <ion-img *ngIf="photos.photo3 != ''"  src={{Showphotos.photo3}}></ion-img>
+                <label *ngIf="photos.photo3 == ''">Click here add side-1 Photo</label>
+              </ion-card>
+            </ion-col>
+            <ion-col size='6' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+              <ion-card class="card_style" (click)='startCam("photo4")'>
+                <ion-img *ngIf="photos.photo4 != ''" src={{Showphotos.photo4}}></ion-img>
+                <label *ngIf="photos.photo4 == ''">Click here add side-2 Photo</label>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+        <ion-label class="label_style">Id-Proof Photo:</ion-label>
+        <ion-row>
+          <ion-col size='6' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-card class="card_style" (click)='startCam("photo5")'> 
+              <ion-img *ngIf="photos.photo5 != ''" class="parentAppLogo" src={{Showphotos.photo5}}></ion-img>
+              <label *ngIf="photos.photo5 == ''">Click here add ID-proof Photo</label>
+            </ion-card>
+          </ion-col>
+          </ion-row>
+          </ion-col>
+      <!-- <ion-col size='12' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+        <ion-label class="label_style">RTO Photo:</ion-label>
+        <ion-row>
+          <ion-col size='6' size-md="12" size-lg="12" size-xl="12" size-xxl="12">
+            <ion-card class="card_style" (click)='startCam("photo5")'>
+              <ion-img class="parentAppLogo" src={{photos.photo5}}></ion-img>
+              <label *ngIf="photos.photo4 == ''">Click here add side-1 Photo</label>
+            </ion-card>
+          </ion-col>
+</ion-row>
+    </ion-col> -->
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row style="padding: 0px;" *ngIf="other && !shwDownload">
+    <ion-col size="12" class="ion-text-center"> 
+      <ion-button id="btn" color="danger"   (click)="submit()" autocapitalize="characters">
+        Submit
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row style="padding: 0px;" *ngIf="other && shwDownload">
+    <ion-col size="12" class="ion-text-center"> 
+      <ion-button id="btn"  color="danger" (click)="downloadCer()" autocapitalize="characters">
+        Download
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  </form>
+ </ion-col>
+</ion-row>
+</ion-content>
+<!-- <ion-button id="btn" [disabled]="!certificatedetails.valid"  (click)="submit()" autocapitalize="characters"> -->

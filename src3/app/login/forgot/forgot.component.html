@@ -1,0 +1,33 @@
+<ion-header *ngIf="myPlatform == 'desktop'">
+    <ion-row>
+    <ion-col size=8 id='title' style="align-self: center;"><h3>Forgot Password</h3></ion-col>
+   <ion-col size=4 style="   text-align: end;"> <ion-icon name="close-circle-outline" (click)='closemodal()'></ion-icon></ion-col> 
+  </ion-row>
+</ion-header>
+<ion-header *ngIf="myPlatform != 'desktop'">
+  <ion-toolbar>
+    <ion-row> 
+      <ion-menu-button></ion-menu-button> <ion-col size=8 id='title' style="align-self: center;">Forgot Password</ion-col>
+    <ion-col style="   text-align: end;"> <ion-icon name="close-circle-outline" (click)='closemodal()'></ion-icon></ion-col> 
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="cpassword">
+  <ion-row style="margin-top: 5rem;">
+
+      <ion-col style="text-align: center;" size=6 offset=3> <ion-icon class="lockimage" src='../../../assets/f password.svg'></ion-icon></ion-col>
+     
+  <ion-col  size=12> <ion-input type=text placeholder="Enter Mail Id" formControlName="mailid"></ion-input></ion-col> 
+  <!-- <ion-col  size=12> <ion-input  type=text placeholder="Phone Number" formControlName="newPassword"></ion-input></ion-col>  -->
+  </ion-row>
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <!-- [disabled]="!cpassword.valid" -->
+      <ion-button (click)='submit()'  color='danger' [disabled]="!cpassword.valid">
+Submit
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+</ion-content>

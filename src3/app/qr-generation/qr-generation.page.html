@@ -1,0 +1,98 @@
+<ion-content>
+  <!-- <qr-code  [value]="values" [size]="width" [level]="level"></qr-code> -->
+  <form [formGroup]="qrform">
+    <ion-row>    
+      <!-- <ion-col size="3" size-sm="3" size-lg="3" style="margin-top: 10px;"></ion-col> -->
+      <ion-col size="12" size-sm="12" offset-lg="3" size-lg="6" style="background-color: #E3EDFF; margin-top: 10px; padding: 22px; padding-bottom: 10px; border: 1px solid #ccc; border-radius: 10px;">
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label id="lot_wrapper">Lot Number</ion-label>
+          <ion-input type="text" class="input" disabled style="width: 100%; height: 47px; border: 0px;" formControlName="lotnumber" placeholder="Enter Lot Number" > </ion-input>
+          <span id="lot_mandary">For generating new lot no, please keep this field blank</span>
+        </ion-col>      
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label id="product_wrapper">Product Name</ion-label>
+          <input class="input" style="width: 100%; height: 47px; border: 0px;" list="datas" formControlName="productname" placeholder='Select Product Name' />
+          <datalist id="datas" style="width: 100%; height: 47px; border: 0px;">
+            <option *ngFor="let data of productName">{{data}}</option>
+          </datalist>
+        </ion-col>  
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label class="label_wrapper">Brand name</ion-label>
+          <!-- <ion-input type="text" class="input" style="width: 100%; height: 47px; border: 0px;" formControlName="brandname"   placeholder="Brand Name"></ion-input> -->
+          <select class="select" style="width: 100%; border: 0px;"   formControlName="brandname" >
+            <option value="" disabled selected hidden class="" >Select Brand name</option>
+            <option *ngFor="let renewal of brand" [value]="renewal">{{renewal}}</option>
+          </select>
+        </ion-col>
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label class="number_wrapper">Vender Mobile Number</ion-label>
+          <input class="input" style="width: 100%; height: 47px; border: 0px;" (change)="getuserId()" list="venderPhone" formControlName="user_id" placeholder='M NO' />
+          <datalist id="venderPhone" style="width: 100%; border: 0px;">
+            <option *ngFor="let rto of userDatas">{{rto.mobile1}}</option>
+          </datalist>
+        </ion-col>
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label class="label_wrapper">RTO Department Codes</ion-label>
+          <input class="input" style="width: 100%; height: 47px; border: 0px;" list="rto" formControlName="rto_zone" placeholder='Select rto zone' />
+          <datalist id="rto" style="width: 100%; border: 0px;">
+            <option *ngFor="let rto of rto">{{rto}}</option>
+          </datalist>
+        </ion-col>
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label class="label_wrapper">Is Renewal</ion-label>
+          <!-- <ion-input type="text" class="input" style="width: 100%; height: 47px; border: 0px;" formControlName="renewal" placeholder="Enter is Renewal"></ion-input> -->
+          <select class="select" style="width: 100%; border: 0px;"   formControlName="renewal" >
+            <option value="" disabled selected hidden class="" >Select is Renewal</option>
+            <option *ngFor="let renewal of renewal" [value]="renewal">{{renewal}}</option>
+          </select>
+        </ion-col>
+        <ion-col size="12" size-sm="12" size-lg="12">  
+          <ion-label class="number_wrapper">Quantity</ion-label>
+          <ion-input type="number" class="input" style="width: 100%; height: 47px; border: 0px;" formControlName="quantity" placeholder="Enter Quantity"></ion-input>
+        </ion-col>
+        <ion-row size="12" size-sm="12" size-lg="12" style="justify-content: center;" *ngIf="myPlatform == 'desktop'">  
+          <ion-button (click)='submit()'>Generate QR Code</ion-button>
+        </ion-row> 
+        <ion-row *ngIf="myPlatform != 'desktop'" style="text-align: center !important;">
+          <ion-col>
+            <ion-button (click)="submit()">Generate-QR</ion-button>
+              <ion-button (click)="closeModel()">Cancel</ion-button>
+            </ion-col>
+        </ion-row>       
+      </ion-col>
+      <ion-col size="3" size-sm="3" size-lg="3" style="margin-top: 10px;"></ion-col>
+    </ion-row>
+  </form>
+  <!-- <ion-row id='pdf' style="opacity: 0;"> -->
+<!--     
+  <div  style=" box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);text-align: center;margin-top: -25px;">
+    <div *ngFor="let data of values" style="width: 100%; text-align: center; margin-top: 0px; margin-left: 40px; transform: rotate(270deg);">
+    <ion-card style="border-radius: 35px;padding: 16px;opacity: 0px;">
+      <div class='ion-text-center' style='    font-size: 17px;
+      padding: 0px; bottom: 6px;
+  position: relative;
+      font-weight: bold;'><span>Smart Rags</span></div>
+   <div class='ion-text-center' style='    font-size: 16px;
+    padding: 0px;
+    font-weight: bold;position: relative;bottom: 4px;
+  z-index: 1;'><span style="border-top: 3px dashed;" >{{data.subheader}}</span></div> 
+
+   <ion-row style="    bottom: 0.5rem;
+   position: relative;"><ion-col class='ion-text-center no-padding' size=12>  <qr-code  [value]=qrcodeUrl+data.qrcode size='130' [level]="level"></qr-code></ion-col>
+    <div class='ion-text-center' style='    font-size: 16px;
+    padding: 0px;bottom: 0.5rem;
+  position: relative;
+    font-weight: bold;'><span>{{data.lotnumber}}</span></div>  </ion-row> 
+</ion-card> -->
+
+    <!-- <img src="https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/TapeManagement/Certificates/QRCode/SmartRags.png" style='width: 115px; height: 20px;' alt='' /><br />
+    <img src="https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/TapeManagement/Certificates/QRCode/UnderLine.png" style='width: 137px; height: 8px;' alt='' /><br />
+    <img src="https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/TapeManagement/Certificates/QRCode/RTOZone.png" style='width: 117px; height: 18px; z-index: 999; position: relative;' alt='' /><br />
+    <qr-code  [value]=qrcodeUrl+data.qrcode size='130' [level]="level"></qr-code><br />
+      <img src="https://kingstrackimages.s3.ap-southeast-1.amazonaws.com/TapeManagement/Certificates/QRCode/LotNumber.png" style='width: 43px; height: 18px; margin-left: -11px; margin-top: -9px;' alt='' /> -->
+    
+
+  <!-- </div>
+</div> -->
+<!-- </ion-row> -->
+</ion-content>

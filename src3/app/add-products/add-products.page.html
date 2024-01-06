@@ -1,0 +1,174 @@
+<ion-header *ngIf="myPlatform != 'desktop'">
+  <ion-toolbar>
+    <ion-row> 
+      <ion-menu-button style="font-size: 24px;"></ion-menu-button> <ion-col size=8 id='title' style="align-self: center;font-size: 17px;font-weight: 100;">Products</ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-header  *ngIf="myPlatform == 'desktop'">
+  <ion-toolbar>
+    <ion-row >
+      <ion-col size = 12>
+        <ion-title>Products</ion-title>
+      </ion-col>
+    </ion-row>  
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col size="12" *ngIf="myPlatform == 'desktop'">
+      <ion-row class="rowSpacing">
+        <ion-item class="searchInput">
+          <ion-icon name="search-outline" slot="start"></ion-icon>
+          <ion-input (keyup)="updateFilter($event)" [ngModel]='search' placeholder="Search">
+          </ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-col style="text-align: right;">
+          <ion-button (click)="openModel()">
+            <ion-icon name="add"></ion-icon> Add
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size=12>
+          <app-ngx-table (selectedRowData)="selectedRowRecived($event)" (reset)="getDatas()" [datalist]="memberList" ></app-ngx-table>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+    <ion-col size="12" *ngIf="myPlatform != 'desktop'">
+      <ion-row>
+        <ion-item class="searchboxmobile">
+          <ion-icon name="search-outline" slot="start" style="margin: -10px 10px 0px 0px;"></ion-icon>
+          <ion-input style="margin: -10px 0px 0px 0px;font-size: 13px;" (keyup)="updateFilter($event)" [ngModel]='search' placeholder="Search">
+          </ion-input>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12" *ngFor ='let data of memberList'>
+          <ion-card class="product-card ion-activatable">
+            <ion-row>
+            <ion-col size="12" class="plateNo tooltip">
+              <ion-fab-button size="small" class="fab-btn"  (click)="selectedRowRecived(data)">
+                <ion-icon name="create" id="edit-icon"></ion-icon>
+              </ion-fab-button>
+              <span  class="tooltiptext">Edit</span>
+            </ion-col>
+          </ion-row>
+          <ion-card class="product-inner-card ion-activatable" >
+            <ion-card-content>
+              <ion-row>
+                <ion-col>
+                  <ion-row>
+                    <ion-col size="4" style="padding-left: 10px;">
+                      <ion-row>
+                        <ion-col size="12">
+                         Product Name
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="12" class="data">
+                          {{data.productname}}
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                   <ion-col size="4" style="padding-left: 10px;">
+                    <ion-row>
+                      <ion-col size="12">
+                        Brand Name
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="12" class="data">
+                        {{data.brandname}}
+                      </ion-col>
+                    </ion-row>
+                 </ion-col>
+                 <ion-col size="4">
+                  <ion-row>
+                    <ion-col size="12">
+                     createdDate
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col size="12" class="data">
+                      {{data.createdDate.substring(0, 10)}}
+                    </ion-col>
+                  </ion-row>
+               </ion-col>
+                  </ion-row>
+                  <ion-row >
+                    <ion-col size="4" style="padding-left: 10px;">
+                      <ion-row>
+                        <ion-col size="12" >
+                         Valid Date
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                       <ion-col size="12" class="data" >
+                        {{data.copvalidtill}}
+                       </ion-col>
+                     </ion-row>
+                    </ion-col>
+                    <ion-col size="4" style="padding-left: 10px;">
+                      <ion-row>
+                        <ion-col size="12">
+                         Product Id
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="12" class="data">
+                          {{data.productid}}
+                        </ion-col>
+                      </ion-row>
+                   </ion-col>
+                    <ion-col size="4" style="padding-left: 10px;">
+                      <ion-row>
+                        <ion-col size="12">
+                          Status
+                        </ion-col>
+                      </ion-row>
+                      <ion-row>
+                        <ion-col size="12" class="data">
+                          <button *ngIf="data.status"  [ngClass]="data.status? 'activate_button' : 'deactivate_button'"   (click)="update(data)" >Activate</button>
+                          <button  *ngIf="data.status == false"  [ngClass]="data.status ? 'activate_button' : 'deactivate_button'"   (click)="update(data)" >Deactivate</button>
+                        </ion-col>
+                      </ion-row>
+                    </ion-col>
+                    <ion-col size="2" style="padding-left: 10px;text-align: center;">
+
+                    </ion-col>
+                  </ion-row>
+                  </ion-col>
+              </ion-row>
+              <ion-row id="cop-col">
+                <ion-col size="12">
+                    <ion-row>
+                      <ion-col size="12">
+                        COP Number
+                      </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="12" class="data">
+                        {{data.copnumber}}
+                      </ion-col>
+                    </ion-row>
+                </ion-col>
+              </ion-row>
+             </ion-card-content>
+             <ion-ripple-effect></ion-ripple-effect>
+          </ion-card>
+          <ion-ripple-effect></ion-ripple-effect>
+        </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-fab class="botmRow" (click)="openModel()">
+        <ion-fab-button style="position: fixed;bottom: 43px;right: 15px;--background: #cc2930;">
+          <ion-icon name="add" class="add-icon"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
